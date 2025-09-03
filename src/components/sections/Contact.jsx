@@ -3,6 +3,11 @@ import { RevealOnScroll } from "../RevealOnScroll"
 import emailjs from 'emailjs-com'
 
 export const Contact = () => {
+    const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
+    const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
+    const PUBLIC_K = import.meta.env.VITE_PUBLIC_KEY;
+
+
 
     const [formData, setFormData] = useState({
         name:"",
@@ -13,7 +18,7 @@ export const Contact = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        emailjs.sendForm(import.meta.env.VITE_SERVICE_ID, import.meta.env.VITE_TEMPLATE_ID, e.target, import.meta.env.VITE_PUBLIC_K).then((result) => {
+        emailjs.sendForm(SERVICE_ID,TEMPLATE_ID, e.target,PUBLIC_K).then((result) => {
             alert("Message Sent");
             setFormData({name: "", email: "", message: ""});
         }).catch(() => alert("Something went wrong, try again"));
@@ -21,7 +26,7 @@ export const Contact = () => {
 
     return (<section id="contact" className="min-h-screen flex items-center justify-center py-20">
         <RevealOnScroll>
-            <div className="px-4 w-150">
+            <div className="w-full sm:w-full md:w-[600px] px-4 md:px-10 mx-auto">
                 <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-cyan-500 to-violet-600 bg-clip-text text-transparent text-center">Contact Me</h2>
                 <form className="space-y-6" onSubmit={handleSubmit}>
                     <div className="relative">
