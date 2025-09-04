@@ -2,7 +2,22 @@ import { RevealOnScroll } from "../RevealOnScroll";
 
 export const About = () => {
     const frontendSkills = ["React", "Next", "Typescript", "TailwindCSS"];
-    const backendSkills = ["AWS", "Python", "PostgresQL", "Java"]
+    const backendSkills = ["AWS", "Python", "PostgresQL", "Java"];
+    
+    const experiences = [
+        {
+            company: "Lendbuzz",
+            companyLink: "https://lendbuzz.com",
+            role: "Machine Learning Engineering Intern",
+            period: "Jun 2025 - Aug 2025",
+            country: "Boston, MA",
+            description: [
+                "Built an org-wide Python tool to locally run proprietary ML models and microservices, cutting setup time from 2 minutes to 12 seconds and reducing infra costs",
+                "Developed CI/CD pipelines (GHA + AWS EC2/ECS) for automated deployments across test, staging, and production",
+                "Supported fraud detection ML pipeline improvements, contributing to a 10% accuracy boost"
+            ]
+        }
+    ];
     
     return (
         <section id="about" className="min-h-screen flex items-center justify-center py-20">
@@ -61,6 +76,60 @@ export const About = () => {
                             <p>Blah Blah</p>
                         </div>
                     </div>
+                </div>
+
+                <div className="flex justify-center items-center w-full mt-8">
+                    <div className="w-[600px] mx-auto">
+                        {experiences.map((exp, index) => (
+                        <div 
+                            key={index} 
+                            className="relative pl-8 before:content-[''] before:absolute before:left-0 before:top-0 before:w-[2px] before:h-full before:bg-gray-700 before:rounded-full"
+                        >
+                            <div 
+                                className={`absolute -left-1.5 top-0 w-2 h-2 bg-gray-700 rounded-full`}
+                            />
+                            <div className="text-gray-400 text-xl mb-1">
+                                {exp.companyLink ? (
+                                    <a 
+                                        href={exp.companyLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="group inline-flex items-center gap-2 font-medium hover:text-blue-400 transition-colors duration-200"
+                                    >
+                                        {exp.company}
+                                        <svg 
+                                            xmlns="http://www.lendbuzz.com" 
+                                            width="16" 
+                                            height="16" 
+                                            viewBox="0 0 24 24" 
+                                            fill="none" 
+                                            stroke="currentColor" 
+                                            strokeWidth="2" 
+                                            strokeLinecap="round" 
+                                            strokeLinejoin="round" 
+                                            className="opacity-70 group-hover:opacity-100 transition-opacity duration-200"
+                                        >
+                                            <path d="M7 17l9.2-9.2M17 17V7H7"/>
+                                        </svg>
+                                    </a>
+                                ) : (
+                                    exp.company
+                                )}
+                            </div>
+                            <p className="text-2xl font-semibold">{exp.role}</p>
+                            <p className="text-gray-400 font-semibold">{exp.period}</p>
+                            {exp.country && <p className="text-gray-400 text-sm">{exp.country}</p>}
+                            <ul className="mt-2 space-y-2 text-gray-300">
+                                {exp.description.map((bullet, bulletIndex) => (
+                                    <li key={bulletIndex} className="flex items-start">
+                                        <span className="mr-2">•</span>
+                                        <span>{bullet}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
+                </div>
                 </div>
             </div>
             </RevealOnScroll>
