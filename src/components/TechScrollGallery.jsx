@@ -7,41 +7,78 @@ import {
   SiTailwindcss,
   SiDocker,
   SiGit,
-  SiAmazonaws,
   SiPython,
 } from "react-icons/si";
+import { useState } from "react";
 
 export const TechScrollGallery = () => {
-  const tech = [
-    { name: "React", icon: <SiReact className="text-cyan-400 text-3xl" /> },
-    { name: "Node.js", icon: <SiNodedotjs className="text-green-500 text-3xl" /> },
-    { name: "Express", icon: <SiExpress className="text-gray-300 text-3xl" /> },
-    { name: "MongoDB", icon: <SiMongodb className="text-green-400 text-3xl" /> },
-    { name: "PostgreSQL", icon: <SiPostgresql className="text-sky-400 text-3xl" /> },
-    { name: "TailwindCSS", icon: <SiTailwindcss className="text-teal-400 text-3xl" /> },
-    { name: "Docker", icon: <SiDocker className="text-blue-400 text-3xl" /> },
-    { name: "Git", icon: <SiGit className="text-orange-400 text-3xl" /> },
-    { name: "AWS", icon: <SiAmazonaws className="text-yellow-400 text-3xl" /> },
-    { name: "Python", icon: <SiPython className="text-yellow-300 text-3xl" /> },
+  const [isHovered, setIsHovered] = useState(false);
+  
+  const technologies = [
+    { icon: SiReact, name: "React" },
+    { icon: SiNodedotjs, name: "Node.js" },
+    { icon: SiExpress, name: "Express" },
+    { icon: SiMongodb, name: "MongoDB" },
+    { icon: SiPostgresql, name: "PostgreSQL" },
+    { icon: SiTailwindcss, name: "Tailwind CSS" },
+    { icon: SiDocker, name: "Docker" },
+    { icon: SiGit, name: "Git" },
+    { icon: SiPython, name: "Python" },
   ];
 
   return (
-    <section className="w-full py-12">
-      <h2 className="text-2xl font-bold text-center text-white mb-6">
-        Technologies I Use
-      </h2>
-
-      <div className="w-full overflow-hidden bg-gray-800/40 backdrop-blur-md py-4 rounded-2xl shadow-lg">
-        <div className="flex animate-scroll">
-          {[...tech, ...tech].map((t, i) => (
+    <section className="py-20 px-4">
+      <div className="max-w-5xl mx-auto">
+        <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-cyan-500 to-violet-600 bg-clip-text text-transparent text-center">
+          Technologies
+        </h2>
+        <div
+          className="relative overflow-hidden rounded-xl border border-white/10 hover:border-blue-500/30 hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all p-8"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <div className="flex relative">
             <div
-              key={i}
-              className="flex items-center gap-2 mx-6 px-4 py-2 text-lg font-semibold text-white bg-white/10 rounded-xl shadow-md whitespace-nowrap"
+              className="flex gap-12 items-center whitespace-nowrap animate-scroll"
+              style={{
+                paddingRight: "3rem",
+                animationPlayState: isHovered ? "paused" : "running"
+              }}
             >
-              {t.icon}
-              <span>{t.name}</span>
+              {technologies.map((tech, index) => {
+                const Icon = tech.icon;
+                return (
+                  <div
+                    key={index}
+                    className="inline-flex flex-col items-center gap-2 hover:-translate-y-1 transition-transform"
+                  >
+                    <Icon className="w-12 h-12 text-blue-500" />
+                    <span className="text-sm text-gray-400">{tech.name}</span>
+                  </div>
+                );
+              })}
             </div>
-          ))}
+            <div
+              className="flex gap-12 items-center whitespace-nowrap animate-scroll"
+              style={{
+                paddingRight: "3rem",
+                animationPlayState: isHovered ? "paused" : "running"
+              }}
+            >
+              {technologies.map((tech, index) => {
+                const Icon = tech.icon;
+                return (
+                  <div
+                    key={`duplicate-${index}`}
+                    className="inline-flex flex-col items-center gap-2 hover:-translate-y-1 transition-transform"
+                  >
+                    <Icon className="w-12 h-12 text-blue-500" />
+                    <span className="text-sm text-gray-400">{tech.name}</span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </section>

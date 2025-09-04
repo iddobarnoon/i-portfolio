@@ -8,6 +8,7 @@ import "./index.css";
 import { useState } from "react";
 import { Projects } from './components/sections/Projects';
 import { Contact } from './components/sections/Contact';
+import { TechScrollGallery } from './components/TechScrollGallery';
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -23,6 +24,7 @@ function App() {
         <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <Home/>
         <About></About>
+        <TechScrollGallery></TechScrollGallery>
         <Projects/>
         <Contact></Contact>
       </div>
