@@ -27,7 +27,7 @@ export const TechScrollGallery = () => {
   ];
 
   return (
-    <section className="py-20 px-4">
+    <section className="py-2.5 px-4">
       <div className="max-w-5xl mx-auto">
         <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-cyan-500 to-violet-600 bg-clip-text text-transparent text-center">
           Technologies
