@@ -8,32 +8,40 @@ import {
   SiDocker,
   SiGit,
   SiPython,
+  SiCplusplus,
+  SiMysql,
+  SiApachemaven,
+  SiAmazonwebservices,
 } from "react-icons/si";
 import { useState } from "react";
+import { FaJava } from "react-icons/fa";
 
 export const TechScrollGallery = () => {
   const [isHovered, setIsHovered] = useState(false);
   
   const technologies = [
     { icon: SiReact, name: "React" },
-    { icon: SiNodedotjs, name: "Node.js" },
-    { icon: SiExpress, name: "Express" },
     { icon: SiMongodb, name: "MongoDB" },
+    { icon: SiApachemaven, name: "Maven" },
     { icon: SiPostgresql, name: "PostgreSQL" },
+    { icon: SiMysql, name: "mySQL" },
     { icon: SiTailwindcss, name: "Tailwind CSS" },
     { icon: SiDocker, name: "Docker" },
+    { icon: SiAmazonwebservices, name: "AWS" },
     { icon: SiGit, name: "Git" },
     { icon: SiPython, name: "Python" },
+    { icon: SiCplusplus, name: "C++" },
+    { icon: FaJava, name: "Java" },
   ];
 
   return (
     <section className="py-2.5 px-4">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-cyan-500 to-violet-600 bg-clip-text text-transparent text-center">
+        <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-cyan-500 to-violet-600 bg-clip-text text-transparent text-center">
           Technologies
         </h2>
         <div
-          className="relative overflow-hidden rounded-xl border border-white/10 hover:border-blue-500/30 hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all p-8"
+          className="relative overflow-hidden rounded-xl border border-white/10 hover:border-blue-500/30 hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all p-6"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
