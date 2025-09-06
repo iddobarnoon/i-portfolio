@@ -1,8 +1,8 @@
 import { RevealOnScroll } from "../RevealOnScroll";
 
 export const About = () => {
-    const frontendSkills = ["React", "Next", "Typescript", "TailwindCSS"];
-    const backendSkills = ["AWS", "Python", "PostgresQL", "Java"];
+    // const frontendSkills = ["React", "Next", "Typescript", "TailwindCSS"];
+    // const backendSkills = ["AWS", "Python", "PostgresQL", "Java"];
     
     const experiences = [
         {
@@ -24,43 +24,23 @@ export const About = () => {
             <RevealOnScroll>
             <div className="max-w-3xl mx-auto px-4">
                 <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-cyan-500 to-violet-600 bg-clip-text text-transparent text-center">About me</h2>
-                <div className="glass rounded-xl p-8 border-white/10 border hover:-translate-y-1 transition-all">
-                    <p className="text-gray-300 mb-6">
-                        TEST TEST TEST TEST TEST TEST
-                        TEST TEST TEST TEST TEST TEST NEED TO ADD BACKGROUND AND GLASS
-                    </p>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div className="rounded-xl p-6 hover:-translate-y-1 transition-all">
-                            <h3 className="text-xl font-bold mb-4"> Frontend </h3>
-                            <div className="flex flex-wrap gap-2">
-                                {frontendSkills.map((tech) => (
-                                    <span className="bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm hover:bg-blue-500/20 hover:shadow-[0_2px_8px_rgba(59,130,2246,0.2)] transition">
-                                        {tech}
-                                    </span>
-
-
-                                ))}
-                            </div>
-                        </div>
-
-                        <div className="rounded-xl p-6 hover:-translate-y-1 transition-all">
-                            <h3 className="text-xl font-bold mb-4"> Backend </h3>
-                            <div className="flex flex-wrap gap-2">
-                                {backendSkills.map((tech) => (
-                                    <span className="bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm hover:bg-blue-500/20 hover:shadow-[0_2px_8px_rgba(59,130,2246,0.2)] transition">
-                                        {tech}
-                                    </span>
-
-
-                                ))}
-                            </div>
-                        </div>
+                <div className="glass rounded-2xl p-6 border-white/10 border hover:-translate-y-1 transition-all text-m text-gray-400 mb-10">
+                    <div className="mt-4 mb-4">
+                        <p className="mb-6">
+                        Hi, I'm <strong className="bg-gradient-to-r from-cyan-500 to-violet-600 bg-clip-text text-transparent">Iddo</strong>!
+                        </p>
+                        <p className="mb-6">I'm currently a Computer Science student at <strong className="bg-gradient-to-r from-cyan-500 to-violet-600 bg-clip-text text-transparent">Yeshiva University</strong>,
+                        concentrating in Artificial Intelligence, and deeply passionate on the intersection between High Performance Computing and Machine Learning
+                        </p>
+                        <p className="mb-6">For as long as I remember, I've had an inherent affinity toward programming and building. I first began programming by learning Java and creating mods on Minecraft for me and my friends to enjoy. I also experimented on locally hosting servers on games like Minecraft and Garry's Mod, both allowing me and 8 of my friends to play concurrently! </p>
+                        <p className="mb-6">In high school, during the popularization of OpenAI's GPT-3, I began experimenting with Machine Learning, and was fascinated about how we could leverage computers to demystify phenomena in the physical world. This survey into a world of higher-level mathematics and advanced computer science concepts strengthened my interest in the field, leading to me pick it up as a major in college.</p>
+                        <p className="mb-6">As a college student, I continued to hone my talents and began to explore other avenues of software engineering. Alongside my coursework, I began applying the knowledge I learned in the classroom through side projects, learning useful technologies, picking up front-end skills, and collaborating with fellow students and professionals. </p>
+                        <p className="mb-6">As I continue to explore and add to my breadth and depth of knowledge in the field, I'm driven to contribute to building projects that bring quantifiable impact to people around the world.</p>
                     </div>
                 </div>
 
                 
-
+                <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-cyan-500 to-violet-600 bg-clip-text text-transparent text-center">Experience </h2>
                 <div className="flex justify-center items-center w-full mt-8">
                     <div className="w-[600px] mx-auto">
                         {experiences.map((exp, index) => (
