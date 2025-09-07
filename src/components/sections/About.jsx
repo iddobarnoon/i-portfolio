@@ -20,13 +20,13 @@ export const About = () => {
     ];
     
     return (
-        <section id="about" className="min-h-screen flex items-center justify-center py-20">
+        <section id="about" className="min-h-screen flex items-center justify-center py-10 sm:py-20">
             <RevealOnScroll>
-            <div className="max-w-3xl mx-auto px-4">
-                <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-cyan-500 to-violet-600 bg-clip-text text-transparent text-center">About me</h2>
-                <div className="glass rounded-2xl p-6 border-white/10 border hover:-translate-y-1 transition-all text-m text-gray-400 mb-10">
-                    <div className="mt-4 mb-4">
-                        <p className="mb-6">
+            <div className="w-full max-w-3xl mx-auto px-4 sm:px-6">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 bg-gradient-to-r from-cyan-500 to-violet-600 bg-clip-text text-transparent text-center">About me</h2>
+                <div className="glass rounded-2xl p-4 sm:p-6 border-white/10 border hover:-translate-y-1 transition-all text-sm sm:text-base text-gray-400 mb-8 sm:mb-10">
+                    <div className="mt-3 sm:mt-4 mb-3 sm:mb-4">
+                        <p className="mb-4 sm:mb-6">
                         Hi, I'm <strong className="bg-gradient-to-r from-cyan-500 to-violet-600 bg-clip-text text-transparent">Iddo</strong>!
                         </p>
                         <p className="mb-6">I'm currently a Computer Science student at <strong className="bg-gradient-to-r from-cyan-500 to-violet-600 bg-clip-text text-transparent">Yeshiva University</strong>,
@@ -40,13 +40,13 @@ export const About = () => {
                 </div>
 
                 
-                <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-cyan-500 to-violet-600 bg-clip-text text-transparent text-center">Experience </h2>
-                <div className="flex justify-center items-center w-full mt-8">
-                    <div className="w-[600px] mx-auto">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 bg-gradient-to-r from-cyan-500 to-violet-600 bg-clip-text text-transparent text-center">Experience </h2>
+                <div className="flex justify-center items-center w-full mt-6 sm:mt-8">
+                    <div className="w-full max-w-[600px] mx-auto px-2 sm:px-0">
                         {experiences.map((exp, index) => (
                         <div 
                             key={index} 
-                            className="relative pl-8 before:content-[''] before:absolute before:left-0 before:top-0 before:w-[2px] before:h-full before:bg-gray-700 before:rounded-full"
+                            className="relative pl-6 sm:pl-8 before:content-[''] before:absolute before:left-0 before:top-0 before:w-[2px] before:h-full before:bg-gray-700 before:rounded-full"
                         >
                             <div 
                                 className={`absolute -left-1.5 top-0 w-2 h-2 bg-gray-700 rounded-full`}
