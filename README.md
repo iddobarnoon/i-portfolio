@@ -73,28 +73,6 @@ src/
    yarn dev
    ```
 
-## 📝 Customization
-
-### Personal Information
-Replace the following placeholders with your information:
-
-- `[YOUR_NAME]` - Your full name
-- `[YOUR_TITLE]` - Your professional title (e.g., "Full Stack Developer")
-- `[YOUR_EMAIL]` - Your contact email
-- `[YOUR_LINKEDIN]` - Your LinkedIn profile URL
-- `[YOUR_GITHUB]` - Your GitHub profile URL
-- `[YOUR_PORTFOLIO_URL]` - Your deployed portfolio URL
-
-### Content Customization
-1. Edit `src/components/sections/About.jsx` to update your personal bio
-2. Modify `src/components/sections/Projects.jsx` to showcase your projects
-3. Update `src/components/TechScrollGallery.jsx` to display your tech stack
-4. Customize `src/components/sections/Contact.jsx` with your preferred contact methods
-
-### Styling
-- Main styling configurations can be found in `src/index.css`
-- Color scheme and theme can be modified in the TailwindCSS configuration
-
 ## 📱 Responsive Design
 The portfolio is fully responsive and optimized for:
 - Mobile devices (320px and up)
