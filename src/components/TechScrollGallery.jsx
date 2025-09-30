@@ -13,6 +13,7 @@ import {
   SiC,
   SiPandas,
   SiNumpy,
+  SiScikitlearn,
 } from "react-icons/si";
 import { useState } from "react";
 import { FaJava } from "react-icons/fa";
@@ -28,6 +29,7 @@ export const TechScrollGallery = () => {
     { icon: SiMysql, name: "mySQL" },
     { icon: SiPandas, name: "Pandas"},
     { icon: SiNumpy, name: "NumPy"},
+    { icon: SiScikitlearn, name: "Scikit-learn"},
     { icon: SiTailwindcss, name: "Tailwind CSS" },
     { icon: SiDocker, name: "Docker" },
     { icon: SiAmazonwebservices, name: "AWS" },
