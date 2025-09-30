@@ -14,7 +14,7 @@ export const About = () => {
             description: [
                 "Built an org-wide Python tool to locally run proprietary ML models and microservices, cutting setup time from 2 minutes to 12 seconds and reducing infra costs",
                 "Developed CI/CD pipelines (GHA + AWS EC2/ECS) for automated deployments across test, staging, and production",
-                "Supported fraud detection ML pipeline improvements, contributing to a 10% accuracy boost"
+                "Supported fraud detection ML pipeline improvements, contributing to a 8.3% accuracy boost"
             ]
         }
     ];
