@@ -14,6 +14,8 @@ import {
   SiPandas,
   SiNumpy,
   SiScikitlearn,
+  SiSupabase,
+  SiPydantic,
 } from "react-icons/si";
 import { useState } from "react";
 import { FaJava } from "react-icons/fa";
@@ -26,6 +28,8 @@ export const TechScrollGallery = () => {
     { icon: SiMongodb, name: "MongoDB" },
     { icon: SiApachemaven, name: "Maven" },
     { icon: SiPostgresql, name: "PostgreSQL" },
+    { icon: SiSupabase, name: "Supabase"},
+    { icon: SiPydantic, name: "Pydantic"},
     { icon: SiMysql, name: "mySQL" },
     { icon: SiPandas, name: "Pandas"},
     { icon: SiNumpy, name: "NumPy"},
