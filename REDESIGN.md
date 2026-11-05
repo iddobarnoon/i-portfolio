@@ -25,3 +25,5 @@ Browser review edits: Personal Projects copy, a direct Education heading without
 The intro is a centered, full-width section with “01 / intro” and “Hi!”; the diagram and work-in-progress tagline were removed.
 
 The tools row is labeled “I’M MOST EXPERIENCED WITH.”
+
+Mouse-wheel and trackpad scrolling travel 15% less per vertical input. Touch scrolling, keyboard controls, and zoom gestures retain their native behavior.

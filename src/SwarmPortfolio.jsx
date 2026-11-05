@@ -1861,6 +1861,14 @@ function SwarmPage() {
     e.vp.scrollY = window.scrollY;
     window.addEventListener("resize", r);
     window.addEventListener("scroll", l, { passive: true });
+    const gentleScroll = event => {
+      if (!event.cancelable || event.ctrlKey || event.metaKey || event.shiftKey ||
+          Math.abs(event.deltaX) > Math.abs(event.deltaY) || !event.deltaY) return;
+      const unit = event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? window.innerHeight : 1;
+      event.preventDefault();
+      window.scrollBy({ top: event.deltaY * unit * 0.85, behavior: "instant" });
+    };
+    window.addEventListener("wheel", gentleScroll, { passive: false });
     const o = m => {
         e.mouse = {
           x: m.clientX,
@@ -1879,7 +1887,7 @@ function SwarmPage() {
       e.step((m - a) / 1e3), a = m, n(c => c + 1), u = requestAnimationFrame(p);
     };
     return u = requestAnimationFrame(p), () => {
-      cancelAnimationFrame(u), window.removeEventListener("resize", r), window.removeEventListener("scroll", l), window.removeEventListener("pointermove", o), document.documentElement.removeEventListener("pointerleave", s);
+      cancelAnimationFrame(u), window.removeEventListener("resize", r), window.removeEventListener("scroll", l), window.removeEventListener("wheel", gentleScroll), window.removeEventListener("pointermove", o), document.documentElement.removeEventListener("pointerleave", s);
     };
   }, [e]), e ? jsxRuntime.jsxs(jsxRuntime.Fragment, {
     children: [jsxRuntime.jsxs("div", {
