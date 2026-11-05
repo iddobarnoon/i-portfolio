@@ -21,3 +21,7 @@ Content was updated from the user's latest resume: NYU Courant education, Axoniu
 Per the user’s update, Yeshiva is omitted. Interests are data, AI agents, inference/ML infrastructure, and forward-deployed engineering.
 
 Browser review edits: Personal Projects copy, a direct Education heading without the redundant study sentence, and side-by-side Professional Experience and Fellowships and Awards columns. Birthright Excel Global Fellow (Summer 2026), selection of 80 from 2,000+ applicants, and lifelong fellowship description were supplied by the user. The fellowship links to its verified official site. Contact copy is “Feel free to email!”
+
+The intro is a centered, full-width section with “01 / intro” and “Hi!”; the diagram and work-in-progress tagline were removed.
+
+The tools row is labeled “I’M MOST EXPERIENCED WITH.”
