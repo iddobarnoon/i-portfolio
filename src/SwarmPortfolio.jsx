@@ -491,7 +491,7 @@ function createScene(e) {
   t.slice(navStart).forEach(el=>el.sticky=true);
   frame('hero',88,660);
   guide('hero-left','x',116,120);
-  text('hero-kicker',116,140,'01 / intro',small,{w:1048,align:'center'});
+  text('hero-kicker',116,140,'01 / INTRO',small,{w:1048,align:'center'});
   text('hero-title',116,205,'Hi!',textStyles.h1,{w:1048,align:'center',snap:'hero-left',grow:true});
   text('hero-copy',300,320,'I’m Iddo. I’m interested in all things data, AI agents, inference and ML infrastructure, and forward-deployed engineering.',textStyles.lead,{w:680,align:'center'});
   button('hero-work',464,450,184,'Explore my work ↓','#work',true);
