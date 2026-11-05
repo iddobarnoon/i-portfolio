@@ -1,11 +1,15 @@
-# Dark canvas portfolio
+# Recovered Swarm engine portfolio
 
-Original dark portfolio inspired by the scroll-to-build interaction in [califa/swarm-site](https://github.com/califa/swarm-site). The reference repository has compiled assets without a license file; no reference code or assets are included.
+The portfolio now runs the recovered construction engine from califa/swarm-site. This replaces the earlier section-reveal approximation.
 
-Uses the existing React/Vite setup. Content is drawn from the original About and Projects sections. Existing components remain available for reference. Contact opens an email client instead of relying on EmailJS.
+The engine retains the original task dependencies, generator-driven drawing and typing actions, copying and editing groups, snapping to guides, adaptive workforce and tempo, and cursor flocking.
 
-Run `npm ci`, then `npm run dev`. Build with `npm run build`. The existing Vite base and master-only Pages deployment remain intact.
+src/SwarmPortfolio.jsx contains the recovered module. createScene defines the portfolio content and layout; palette defines colors. SwarmEngine schedules and performs construction. The scene uses a 1280px coordinate system that scales to the viewport, matching the reference.
 
-Entry point: src/App.jsx. Content and scroll assembly: src/portfolio.js. Styling: src/index.css. Content remains visible without intersection-observer support; reduced-motion visitors receive everything immediately.
+The original bundled React runtime was replaced with imports from this project's React dependency. Text rendering was extended to support real navigation, repository links, and email links. The reference brand mark was replaced with an IB monogram.
 
-Intended branch: codex/swarm-portfolio. Do not merge automatically.
+Run npm ci, then npm run dev. Run npm run build to create the production output. Vite retains the /i-portfolio base. The existing master-only Pages deployment was left intact.
+
+Verified: production build, blank introduction with cursor swarm, drawing and typing after scrolling, project group duplication followed by text edits, and construction of experience and contact sections.
+
+This is recovered executable logic, not the author's original unminified source. See SWARM-NOTICE.md for provenance and reuse status.
