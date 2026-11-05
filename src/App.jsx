@@ -1,35 +1,8 @@
-import './App.css';
-import { LoadingScreen } from './components/LoadingScreen';
-import { NavBar } from './components/Navbar';
-import { MobileMenu } from './components/MobileMenu';
-import { Home } from './components/sections/Home';
-import { About } from './components/sections/About';
-import "./index.css";
-import { useState } from "react";
-import { Projects } from './components/sections/Projects';
-import { Contact } from './components/sections/Contact';
-import { TechScrollGallery } from './components/TechScrollGallery';
+import { useEffect, useRef } from 'react';
+import { portfolioMarkup, initializePortfolio } from './portfolio';
 
-function App() {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-  return(
-    <>
-      {!isLoaded && <LoadingScreen onComplete={() => setIsLoaded(true)} />}{" "}
-      <div className={`min-h-screen transition-opacity duration-700 ${
-          isLoaded ? "opacity-100" : "opacity-0"
-        } bg-black text-gray-100`}
-      >
-        <NavBar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-        <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-        <Home/>
-        <About></About>
-        <TechScrollGallery></TechScrollGallery>
-        <Projects/>
-        <Contact></Contact>
-      </div>
-    </>
-    );
+export default function App() {
+  const root = useRef(null);
+  useEffect(() => initializePortfolio(root.current), []);
+  return <div ref={root} dangerouslySetInnerHTML={{ __html: portfolioMarkup }} />;
 }
-
-export default App
