@@ -19,3 +19,5 @@ The light theme uses a paper background, dark text, and pale blue/green diagram 
 Content was updated from the user's latest resume: NYU Courant education, Axonius and Lendbuzz internships, Trade the Knight first place, and the three resume projects. Repository links for BudgetWise and PersistentDocuStore were verified. The HFPredictionMarketBot URL was supplied by the user; the connected GitHub API returned 404, so its public availability is unverified. Employer and school names link to their official sites. The source resume was not copied into the public website.
 
 Per the user’s update, Yeshiva is omitted. Interests are data, AI agents, inference/ML infrastructure, and forward-deployed engineering.
+
+Browser review edits: Personal Projects copy, a direct Education heading without the redundant study sentence, and side-by-side Professional Experience and Fellowships and Awards columns. Birthright Excel Global Fellow (Summer 2026), selection of 80 from 2,000+ applicants, and lifelong fellowship description were supplied by the user. The fellowship links to its verified official site. Contact copy is “Feel free to email!”
