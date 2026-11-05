@@ -497,7 +497,7 @@ function createScene(e) {
   text('hero-copy',116,378,'I’m Iddo. I build software at the intersection of machine learning, systems, and the things that make me curious.',textStyles.lead,{w:500,snap:'hero-left'});
   button('hero-work',116,505,184,'Explore my work ↓','#work',true);
   button('hero-github',312,505,156,'GitHub ↗','https://github.com/iddobarnoon');
-  text('hero-location',116,595,'NEW YORK, NY  /  COMPUTER SCIENCE + AI',small);
+  text('hero-location',116,595,'NEW YORK, NY  /  COMPUTER SCIENCE + MATHEMATICS',small);
   rect('curiosity',776,162,388,64,{r:10,fill:'#edf1ff',stroke:'#bec8ed'});
   text('curiosity-label',800,181,'↳ a little curiosity',textStyles.nodeWhite,{deps:['r:curiosity']});
   path('branch',[{x:970,y:226},{x:970,y:260},{x:866,y:260},{x:866,y:305}],{deps:['r:curiosity']});
@@ -514,7 +514,7 @@ function createScene(e) {
   frame('tools',660,770,true);
   text('tools-label',116,707,'TOOLS OF THE TRADE',lt(11));
   text('tool',380,704,'Python',textStyles.logo);
-  duplicate('tool-list',['tool'],['Java','React','AWS','Docker'].map((name,index)=>({dx:(index+1)*155,dy:0,edits:[name]})));
+  duplicate('tool-list',['tool'],['Java','PyTorch','React','Docker'].map((name,index)=>({dx:(index+1)*155,dy:0,edits:[name]})));
   frame('work-heading',770,960);
   guide('work-guide','x',116,790);
   text('work-kicker',116,815,'02 / SELECTED WORK',small,{snap:'work-guide'});
@@ -527,54 +527,86 @@ function createScene(e) {
   text('project-glyph',145,1036,'B ↗',he(52,600,1,'#4c5bd4'),{deps:['r:project-art']});
   text('project-art-copy',300,1044,'analyze → plan → save',lt(13,'#4c5bd4'),{deps:['r:project-art']});
   text('project-title',116,1180,'BudgetWise',textStyles.h3,{snap:'project-guide'});
-  text('project-desc',116,1225,'Agentic AI for financial savings. Intelligent agents connected to a full-stack web experience.',body,{w:455});
-  text('project-tech',116,1310,'Next.js · OpenAI · FastAPI · Supabase',lt(11));
+  text('project-desc',116,1225,'A budgeting app with a tool-calling AI assistant, FastAPI microservices, a Next.js frontend, and Supabase storage.',body,{w:455});
+  text('project-tech',116,1310,'Python · Next.js · FastAPI · Supabase · Docker',lt(11));
   text('project-link',116,1370,'Explore repository ↗',lt(13,palette.accent,500));link('project-link','https://github.com/iddobarnoon/BudgetWise');
-  duplicate('projects',['project-art','project-glyph','project-art-copy','project-title','project-desc','project-tech','project-link'],[{dx:560,dy:0,edits:['{ }','create → search → restore','Persistent Document Storage','A lightweight persistent document store with search, prefix lookup, deletion, and undo.','Java · Maven · Data Structures · GSON','Explore repository ↗']}]);
+  duplicate('projects',['project-art','project-glyph','project-art-copy','project-title','project-desc','project-tech','project-link'],[{dx:560,dy:0,edits:['{ }','create → search → restore','Persistent Document Storage System','A persistent document store using B-Trees for retrieval, with prefix search, deletion, undo, and version control.','Java · Maven · Data Structures · GSON','Explore repository ↗']}]);
   link('project-link~1','https://github.com/iddobarnoon/PersistentDocuStore');
-  frame('football',1440,1800);
-  vertical('football-divider',640,1440,1800);
-  rect('pitch',116,1490,488,250,{r:8,fill:'#edf5ee',stroke:'#bfd1c3'});
-  path('pitch-line',[{x:360,y:1490},{x:360,y:1740}],{stroke:'#8aab91',deps:['r:pitch']});
-  path('pitch-inner',[{x:140,y:1515},{x:580,y:1515},{x:580,y:1715},{x:140,y:1715}],{closed:true,stroke:'#8aab91',deps:['r:pitch']});
-  text('pitch-title',151,1580,'DATA → MODEL → PREDICTION',lt(18,'#3c6031'),{deps:['r:pitch']});
-  text('football-title',676,1500,'Premier League Win Predictor',textStyles.h3,{w:480});
-  text('football-desc',676,1550,'Finding patterns in the beautiful game. A random forest model that predicts EPL winners from historical football data.',body,{w:455});
-  text('football-tech',676,1665,'Scikit-learn · Pandas · NumPy · Jupyter',lt(11));
-  text('football-link',676,1720,'Explore repository ↗',lt(13,palette.accent,500));link('football-link','https://github.com/iddobarnoon/PremierLeagueWinnersML');
-  frame('about',1800,2340);
-  vertical('about-divider',640,1800,2340);
-  guide('about-guide','x',116,1820);
-  text('about-kicker',116,1850,'03 / THE PERSON BEHIND THE CURSOR',small,{snap:'about-guide'});
-  text('about-title',116,1900,'Always a builder.\nStill asking why.',heading,{w:480,snap:'about-guide',grow:true});
-  text('about-copy',116,2035,'From Java and Minecraft mods to machine learning experiments, I’ve always learned by building.',body,{w:450});
-  text('about-study',116,2130,'I study Computer Science at Yeshiva University with a concentration in Artificial Intelligence. I’m especially interested in high-performance computing and machine learning.',body,{w:450});
-  rect('terminal',676,1860,488,406,{r:12,fill:palette.code,stroke:palette.line});
-  text('terminal-file',704,1882,'● ● ●                         iddo.config',lt(11,'#94a3be'),{deps:['r:terminal']});
-  path('terminal-divider',[{x:676,y:1920},{x:1164,y:1920}],{stroke:palette.line,deps:['r:terminal']});
-  const code=['// a few things about me','const iddo = {','  basedIn: "New York, NY",','  studies: "Computer Science + AI",','  drawnTo: [','    "machine learning",','    "high-performance computing",','    "building useful things"','  ]','};'];
-  code.forEach((line,index)=>text('code-'+index,704,1944+index*25,line,textStyles.code,{deps:['r:terminal']}));
-  frame('experience',2340,2860,true);
-  vertical('experience-divider',640,2340,2860);
-  text('experience-kicker',116,2400,'04 / IN THE REAL WORLD',small);
+
+  frame('trading',1440,1840);
+  vertical('trading-divider',640,1440,1840);
+  rect('market',116,1490,488,290,{r:8,fill:'#edf5ee',stroke:'#bfd1c3'});
+  text('market-label',146,1518,'PREDICTION MARKET / OCR → EXECUTION',lt(12,'#3c6031'),{deps:['r:market']});
+  path('market-chart',[{x:150,y:1690},{x:200,y:1660},{x:245,y:1675},{x:295,y:1610},{x:335,y:1630},{x:390,y:1580},{x:440,y:1595},{x:560,y:1555}],{stroke:'#5f8968',sw:2,deps:['r:market']});
+  text('market-speed',146,1722,'< 1 second',he(30,600,1.1,'#3c6031'),{deps:['r:market']});
+  text('trading-title',676,1490,'High Frequency Prediction\nMarket Trading Bot',textStyles.h3,{w:480});
+  text('trading-date',676,1560,'JANUARY 2026',lt(11));
+  text('trading-desc',676,1598,'Built an OCR-driven trading system with sub-second response from outcome recognition to order placement. OpenCV image binarization feeds Tesseract; Kalshi and Polymarket APIs execute orders, with SQLite logging.',body,{w:455});
+  text('trading-tech',676,1730,'OpenCV · Tesseract-OCR · SQLite · APIs',lt(11));
+  text('trading-link',676,1775,'Explore repository ↗',lt(13,palette.accent,500));link('trading-link','https://github.com/iddobarnoon/HFPredictionMarketBot');
+  frame('about',1840,2340);
+  vertical('about-divider',640,1840,2340);
+  guide('about-guide','x',116,1860);
+  text('about-kicker',116,1880,'03 / ABOUT + EDUCATION',small,{snap:'about-guide'});
+  text('about-title',116,1920,'Always a builder.\nStill asking why.',heading,{w:480,snap:'about-guide',grow:true});
+  text('about-copy',116,2030,'I study Computer Science and Mathematics at NYU Courant, building on a foundation in AI from Yeshiva University.',body,{w:450});
+  text('nyu-school',116,2120,'NYU / Courant Institute ↗',he(19,600,1.3,palette.accent),{w:450});link('nyu-school','https://cs.nyu.edu/');
+  text('nyu-degree',116,2158,'BA, Computer Science + Mathematics',body,{w:450});
+  text('nyu-dates',116,2188,'AUG 2026 — MAY 2028 (EXPECTED)',lt(11));
+  text('yu-school',116,2230,'Yeshiva University ↗',he(19,600,1.3,palette.accent));link('yu-school','https://www.yu.edu/');
+  text('yu-degree',116,2267,'BS, Computer Science: AI · Mathematics minor',body,{w:480});
+  text('yu-dates',116,2300,'AUG 2024 — MAY 2026',lt(11));
+  rect('terminal',676,1880,488,406,{r:12,fill:palette.code,stroke:palette.line});
+  text('terminal-file',704,1902,'● ● ●                         iddo.config',lt(11,'#94a3be'),{deps:['r:terminal']});
+  path('terminal-divider',[{x:676,y:1940},{x:1164,y:1940}],{stroke:palette.line,deps:['r:terminal']});
+  const code=['// a few things about me','const iddo = {','  basedIn: "New York, NY",','  studies: "CS + Mathematics",','  school: "NYU Courant",','  drawnTo: [','    "machine learning",','    "high-performance computing",','    "building useful things"','  ]','};'];
+  code.forEach((line,index)=>text('code-'+index,704,1964+index*25,line,textStyles.code,{deps:['r:terminal']}));
+  frame('axonius',2340,2860,true);
+  vertical('axonius-divider',640,2340,2860);
+  text('experience-kicker',116,2400,'04 / EXPERIENCE',small);
   text('experience-title',116,2460,'From experiments\nto engineering.',heading,{w:470,grow:true});
-  text('company',676,2400,'LENDBUZZ ↗',lt(13,palette.accent,500));link('company','https://lendbuzz.com');
-  text('experience-date',676,2440,'JUN — AUG 2025 · BOSTON',lt(11));
-  text('experience-role',676,2480,'Machine Learning\nEngineering Intern',he(28,600,1.15),{w:470});
-  text('experience-body',676,2570,'Built local ML tooling in Python, deployment pipelines with GitHub Actions and AWS, and improvements to a fraud detection ML pipeline.',body,{w:460});
-  text('stat',676,2710,'65%',textStyles.stat);text('stat-caption',676,2778,'less setup time',small);
-  duplicate('stats',['stat','stat-caption'],[{dx:260,dy:0,edits:['8.3%','accuracy improvement']}]);
-  frame('contact',2860,3290);
-  guide('contact-guide','x',116,2880);
-  text('contact-kicker',116,2920,'05 / NEXT UP',small,{snap:'contact-guide'});
-  text('contact-title',116,2970,'Let’s build\nsomething good.',{...textStyles.h1,color:palette.accent},{w:950,snap:'contact-guide',grow:true});
-  text('contact-email',116,3150,'iddobarnoon@gmail.com ↗',textStyles.lead);link('contact-email','mailto:iddobarnoon@gmail.com');
-  text('contact-copy',790,3150,'Have an idea, a question, or a challenge?\nI’d love to hear about it.',body,{w:370});
-  frame('footer',3290,3400,true);
-  text('copyright',116,3330,'© '+new Date().getFullYear()+' Iddo Barnoon',small);
-  text('footer-link',900,3330,'GitHub ↗',small);link('footer-link','https://github.com/iddobarnoon');
+  text('axonius-company',676,2390,'AXONIUS ↗',lt(13,palette.accent,500));link('axonius-company','https://www.axonius.com/');
+  text('axonius-date',676,2430,'JUN — AUG 2026 · TEL AVIV, ISRAEL',lt(11));
+  text('axonius-role',676,2470,'Software Engineer Intern',he(28,600,1.15),{w:480});
+  text('axonius-body',676,2530,'Built developer tooling with MCP, Claude Skills, and LangGraph to resolve Jira tickets and automate low-priority fixes. Helped migrate front-end tests and shipped reusable, accessible components.',body,{w:460});
+  text('axonius-stat',676,2700,'40%',textStyles.stat);
+  text('axonius-caption',676,2770,'shorter front-end test suite runtime',small,{w:460});
+  frame('lendbuzz',2860,3380);
+  vertical('lendbuzz-divider',640,2860,3380);
+  text('lendbuzz-kicker',116,2920,'MACHINE LEARNING + INFRASTRUCTURE',small,{w:470});
+  text('lendbuzz-heading',116,2980,'Make it faster.\nMake it useful.',heading,{w:470,grow:true});
+  text('lendbuzz-company',676,2910,'LENDBUZZ ↗',lt(13,palette.accent,500));link('lendbuzz-company','https://www.lendbuzz.com/');
+  text('lendbuzz-date',676,2950,'JUN — AUG 2025 · BOSTON, MA',lt(11));
+  text('lendbuzz-role',676,2990,'Machine Learning\nEngineering Intern',he(28,600,1.15),{w:470});
+  text('lendbuzz-body',676,3080,'Built Docker-based tooling for running ML models and microservices locally, replacing Proxmox instances. Automated deployments with GitHub Actions and AWS EC2/ECS. Contributed to fraud-model post-training using OCR, Word2Vec, and Bag-of-Words.',body,{w:460});
+  text('setup-stat',676,3220,'65%',textStyles.stat);
+  text('setup-caption',676,3288,'less setup time',small);
+  duplicate('deployment-stats',['setup-stat','setup-caption'],[{dx:260,dy:0,edits:['35%','faster deployment']}]);
+  text('approval-note',676,3335,'Supported express approvals reaching 17.4% by Q2',lt(11),{w:470});
+  frame('award',3380,3740,true);
+  vertical('award-divider',640,3380,3740);
+  text('award-kicker',116,3430,'05 / AWARDS',small);
+  text('award-title',116,3480,'1st place.\nTrade the Knight.',heading,{w:470,grow:true});
+  text('award-host',676,3430,'RUTGERS UNIVERSITY · CITADEL',lt(12,palette.accent,500),{w:470});
+  text('award-date',676,3470,'MARCH 2026 · ALGORITHMIC TRADING',lt(11));
+  text('award-body',676,3510,'Built four bots for pairs trading, market-making, statistical arbitrage, and prediction markets, plus a real-time market data dashboard.',body,{w:460});
+  text('return-stat',676,3610,'102%',he(38,600,1,palette.ink));
+  text('return-caption',676,3660,'return / 8-hour session',lt(11));
+  text('sharpe-stat',960,3610,'2.26',he(38,600,1,palette.ink));
+  text('sharpe-caption',960,3660,'Sharpe ratio',lt(11));
+  frame('contact',3740,4170);
+  guide('contact-guide','x',116,3760);
+  text('contact-kicker',116,3800,'06 / NEXT UP',small,{snap:'contact-guide'});
+  text('contact-title',116,3850,'Let’s build\nsomething good.',{...textStyles.h1,color:palette.accent},{w:950,snap:'contact-guide',grow:true});
+  text('contact-email',116,4030,'iddobarnoon@gmail.com ↗',textStyles.lead);link('contact-email','mailto:iddobarnoon@gmail.com');
+  text('contact-copy',790,4030,'Have an idea, a question, or a challenge?\nI’d love to hear about it.',body,{w:370});
+  text('contact-linkedin',116,4100,'LinkedIn ↗',lt(13,palette.accent,500));link('contact-linkedin','https://linkedin.com/in/iddobarnoon');
+  frame('footer',4170,4280,true);
+  text('copyright',116,4210,'© '+new Date().getFullYear()+' Iddo Barnoon',small);
+  text('footer-linkedin',760,4210,'LinkedIn ↗',small);link('footer-linkedin','https://linkedin.com/in/iddobarnoon');
+  text('footer-link',1000,4210,'GitHub ↗',small);link('footer-link','https://github.com/iddobarnoon');
   for(const el of t) if(links.has(el.id)) el.href=links.get(el.id);
-  return {els:t,tasks:n,groups:r,height:3400};
+  return {els:t,tasks:n,groups:r,height:4280};
 
 }
 
@@ -1350,7 +1382,7 @@ const TextElement = React.memo(({
     }) : t.code ? mp(e.shown) : e.shown;
   return jsxRuntime.jsxs(e.href ? "a" : "div", {
     href: e.href,
-    onClick: e.href?.startsWith("#") ? event => { event.preventDefault(); const y = {work:770,about:1800,experience:2340}[e.href.slice(1)] ?? 0; window.scrollTo({top:Math.max(0,y * (window.swarm?.vp.s ?? 1) - 90),behavior:"smooth"}); } : undefined,
+    onClick: e.href?.startsWith("#") ? event => { event.preventDefault(); const y = {work:770,about:1840,experience:2340}[e.href.slice(1)] ?? 0; window.scrollTo({top:Math.max(0,y * (window.swarm?.vp.s ?? 1) - 90),behavior:"smooth"}); } : undefined,
     className: "el-text",
     style: {
       left: e.x + e.dx,

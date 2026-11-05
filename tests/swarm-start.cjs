@@ -35,3 +35,17 @@ test('the first actual scroll starts construction and work continues afterward',
   engine.setScroll(0);
   assert.equal(engine.started,true);
 });
+
+test('resume projects and employers retain their exact destinations', () => {
+  const engine = createEngine();
+  const expected = {
+    'project-link':'https://github.com/iddobarnoon/BudgetWise',
+    'project-link~1':'https://github.com/iddobarnoon/PersistentDocuStore',
+    'trading-link':'https://github.com/iddobarnoon/HFPredictionMarketBot',
+    'axonius-company':'https://www.axonius.com/',
+    'lendbuzz-company':'https://www.lendbuzz.com/',
+    'contact-linkedin':'https://linkedin.com/in/iddobarnoon'
+  };
+  for(const [id,href] of Object.entries(expected)) assert.equal(engine.els.get(id).href,href,id);
+  assert.ok(!engine.list.some(element => element.text === '8.3%'));
+});
