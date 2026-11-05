@@ -28,6 +28,7 @@ export const portfolioMarkup = `
 
 export function initializePortfolio(root) {
   const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+  root.querySelectorAll('.project-copy > *, .art > *, .diagram .node, .diagram .fork, .terminal pre').forEach(el => el.classList.add('build'));
   const items = [...root.querySelectorAll('.build')];
   const firstCursor = root.querySelector('.builder-cursor');
   const names = ['iddo / type', 'iddo / layout', 'iddo / style'];
@@ -45,7 +46,6 @@ export function initializePortfolio(root) {
   let active = true;
   const cursorTimers = [];
   const availableAt = [0, 0, 0];
-  const restorations = new Set();
   const later = (fn, ms) => {
     const id = setTimeout(() => { timers.delete(id); if (active) fn(); }, ms);
     timers.add(id);
@@ -61,30 +61,12 @@ export function initializePortfolio(root) {
     el.classList.add('is-drawing');
     status.textContent = 'ASSEMBLING THE CANVAS';
     const isText = ['H1','H2','P'].includes(el.tagName);
-    let restore;
-    if (isText) {
-      const oldMinHeight = el.style.minHeight;
-      el.style.minHeight = el.getBoundingClientRect().height + 'px';
-      const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
-      const nodes = [];
-      while (walker.nextNode()) nodes.push([walker.currentNode, walker.currentNode.textContent]);
-      const length = nodes.reduce((sum, [,text]) => sum + text.length, 0);
-      restore = () => { nodes.forEach(([node,text]) => { node.textContent = text; }); el.removeAttribute('aria-busy'); el.style.minHeight = oldMinHeight; };
-      restorations.add(restore);
-      el.setAttribute('aria-busy', 'true');
-      nodes.forEach(([node]) => {node.textContent = '';});
-      const steps = 20;
-      for (let step=1; step<=steps; step++) later(() => {
-        if (media.matches) { restore(); return; }
-        let remaining = Math.ceil(length * step / steps);
-        nodes.forEach(([node,text]) => {node.textContent = text.slice(0, Math.max(0,remaining)); remaining -= text.length;});
-        cursor.style.left = Math.min(innerWidth - 135, b.left + b.width * step / steps) + 'px';
-        if(step===steps) {restore(); restorations.delete(restore);}
-      }, step * 40);
-    } else {
-      el.classList.add('being-assembled');
-      later(() => el.classList.remove('being-assembled'), 900);
-    }
+    const effect = isText ? 'being-typed' : 'being-assembled';
+    el.classList.add(effect);
+    later(() => el.classList.remove(effect), 900);
+    if (isText) for (let step = 1; step <= 20; step++) later(() => {
+      if (!media.matches) cursor.style.left = Math.min(innerWidth - 135, b.left + b.width * step / 20) + 'px';
+    }, step * 40);
     later(() => el.classList.remove('is-drawing'), 1100);
     clearTimeout(cursorTimers[agentIndex]);
     cursorTimers[agentIndex] = setTimeout(() => {
@@ -109,8 +91,7 @@ export function initializePortfolio(root) {
   const onMotion = () => {
     if (media.matches) {
       observer?.disconnect();
-      items.forEach(e => { e.classList.add('is-built'); e.classList.remove('is-drawing'); });
-      restorations.forEach(fn => fn());
+      items.forEach(e => { e.classList.add('is-built'); e.classList.remove('is-drawing', 'being-typed', 'being-assembled'); });
       cursors.forEach(cursor => cursor.classList.remove('is-building'));
     }
   };
@@ -120,7 +101,6 @@ export function initializePortfolio(root) {
     observer?.disconnect();
     timers.forEach(clearTimeout);
     cursorTimers.forEach(clearTimeout);
-    restorations.forEach(fn => fn());
     cursors.slice(1).forEach(cursor => cursor.remove());
     media.removeEventListener('change', onMotion);
   };

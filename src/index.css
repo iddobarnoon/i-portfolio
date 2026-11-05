@@ -7,3 +7,5 @@
 @media(max-width:380px){h1{font-size:16vw;letter-spacing:-3px}.nav-contact{font-size:9px;padding:8px}nav{gap:10px}.terminal pre{font-size:8px}.experience-meta{flex-wrap:wrap}.impact{gap:35px}}
 @keyframes assemble{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}.motion-ready .build:not(.is-built){opacity:1;transform:none}.builder-cursor,.agent{display:none}}
+
+.being-typed{animation:assemble .8s steps(24,end) both}
