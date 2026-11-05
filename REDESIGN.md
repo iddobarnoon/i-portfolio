@@ -13,3 +13,5 @@ Run npm ci, then npm run dev. Run npm run build to create the production output.
 Verified: production build, blank introduction with cursor swarm, drawing and typing after scrolling, project group duplication followed by text edits, and construction of experience and contact sections.
 
 This is recovered executable logic, not the author's original unminified source. See SWARM-NOTICE.md for provenance and reuse status.
+
+The light theme uses a paper background, dark text, and pale blue/green diagram panels. Construction starts only after a scroll changes the page position. Pointer movement, intro flock collisions, and elapsed time cannot start construction.

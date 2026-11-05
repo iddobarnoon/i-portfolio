@@ -203,11 +203,11 @@ const OFFSCREEN_LEFT = -1e4;
 const OFFSCREEN_RIGHT = 1e4;
 const Z = LEFT + 36;
 const palette = {
-  ink: "#e9edf5",
-  muted: "#a1adbf",
-  line: "#303a49",
-  accent: "#9ab2ff",
-  card: "#19202b",
+  ink: "#121417",
+  muted: "#62666d",
+  line: "#d7dade",
+  accent: "#4c5bd4",
+  card: "#ffffff",
   code: "#111721"
 };
 const he = (e, t, n, r = palette.ink, l = 0) => ({
@@ -234,9 +234,9 @@ const textStyles = {
   body: he(15.5, 400, 1.55, palette.muted),
   item: he(14.5, 450, 1.4, palette.ink),
   nav: he(14, 500, 1.4, palette.ink),
-  btn: he(14.5, 600, 1.4, "#19202b"),
+  btn: he(14.5, 600, 1.4, "#ffffff"),
   btnDark: he(14.5, 600, 1.4, palette.ink),
-  logo: he(19, 650, 1.3, "#b5c3d8", -.025),
+  logo: he(19, 650, 1.3, "#43474e", -.025),
   brand: he(18, 650, 1.3, palette.ink, -.02),
   stat: he(52, 600, 1, palette.ink, -.04),
   price: he(44, 600, 1.05, palette.ink, -.035),
@@ -247,7 +247,7 @@ const textStyles = {
   }),
   codeDim: lt(12, "#81868D"),
   nodeName: lt(13, palette.ink, 500),
-  nodeWhite: lt(14, "#e9edf5", 500),
+  nodeWhite: lt(14, palette.ink, 500),
   small: lt(12, palette.muted)
 };
 const zc = [{d:"M8 10H30V130H8ZM48 10H91Q119 10 119 42Q119 62 104 69Q124 78 124 100Q124 130 91 130H48ZM70 32V59H88Q98 59 98 45Q98 32 88 32ZM70 80V108H89Q103 108 103 94Q103 80 89 80Z",anchors:[]}];
@@ -476,7 +476,7 @@ function createScene(e) {
   const link = (id, href) => links.set(id, href);
   const button = (id, x, y, width, label, href, primary = false) => {
     rect(id, x, y, width, 48, {r:8,fill:primary?palette.accent:palette.card,stroke:palette.line});
-    text(id+'-label', x, y+13, label, primary?{...textStyles.btn,color:'#101216'}:textStyles.btnDark,{w:width,align:'center',deps:['r:'+id]});
+    text(id+'-label', x, y+13, label, primary?{...textStyles.btn,color:'#ffffff'}:textStyles.btnDark,{w:width,align:'center',deps:['r:'+id]});
     link(id+'-label',href);
   };
   const navStart=t.length;
@@ -487,7 +487,7 @@ function createScene(e) {
   text('nav-about',700,46,'About',textStyles.nav); link('nav-about','#about');
   text('nav-exp',800,46,'Experience',textStyles.nav); link('nav-exp','#experience');
   rect('nav-mail',1024,36,144,40,{r:8,fill:palette.accent});
-  text('nav-mail-label',1024,46,'Let’s talk ↗',{...textStyles.btn,color:'#101216'},{w:144,align:'center',deps:['r:nav-mail']});link('nav-mail-label','mailto:iddobarnoon@gmail.com');
+  text('nav-mail-label',1024,46,'Let’s talk ↗',{...textStyles.btn,color:'#ffffff'},{w:144,align:'center',deps:['r:nav-mail']});link('nav-mail-label','mailto:iddobarnoon@gmail.com');
   t.slice(navStart).forEach(el=>el.sticky=true);
   frame('hero',88,660);
   vertical('hero-divider',740,88,660);
@@ -498,7 +498,7 @@ function createScene(e) {
   button('hero-work',116,505,184,'Explore my work ↓','#work',true);
   button('hero-github',312,505,156,'GitHub ↗','https://github.com/iddobarnoon');
   text('hero-location',116,595,'NEW YORK, NY  /  COMPUTER SCIENCE + AI',small);
-  rect('curiosity',776,162,388,64,{r:10,fill:'#26344f',stroke:'#52688f'});
+  rect('curiosity',776,162,388,64,{r:10,fill:'#edf1ff',stroke:'#bec8ed'});
   text('curiosity-label',800,181,'↳ a little curiosity',textStyles.nodeWhite,{deps:['r:curiosity']});
   path('branch',[{x:970,y:226},{x:970,y:260},{x:866,y:260},{x:866,y:305}],{deps:['r:curiosity']});
   path('branch-two',[{x:970,y:260},{x:1074,y:260},{x:1074,y:305}],{deps:['r:curiosity']});
@@ -508,8 +508,8 @@ function createScene(e) {
   duplicate('thinking',['node','node-title','node-desc'],[{dx:208,dy:0,edits:['Build it.','models · systems']}]);
   path('merge',[{x:866,y:381},{x:866,y:425},{x:1074,y:425},{x:1074,y:381}],{deps:['d:thinking:0']});
   path('output-stem',[{x:970,y:425},{x:970,y:470}],{deps:['p:merge']});
-  rect('output',776,470,388,64,{r:8,fill:'#253127',stroke:'#536b4d',deps:['p:output-stem']});
-  text('output-label',800,491,'something that matters ↗',lt(13,'#c4d6ba'),{deps:['r:output']});
+  rect('output',776,470,388,64,{r:8,fill:'#edf5e9',stroke:'#bfd1b6',deps:['p:output-stem']});
+  text('output-label',800,491,'something that matters ↗',lt(13,'#3c6031'),{deps:['r:output']});
   text('thinking-status',776,580,'input → iteration → impact',small,{snap:'hero-right'});
   frame('tools',660,770,true);
   text('tools-label',116,707,'TOOLS OF THE TRADE',lt(11));
@@ -523,9 +523,9 @@ function createScene(e) {
   frame('project-grid',960,1440,true);
   vertical('project-split',640,960,1440);
   guide('project-guide','y',1180,970);
-  rect('project-art',116,998,488,140,{r:10,fill:'#1d2942',stroke:'#3a527a'});
-  text('project-glyph',145,1036,'B ↗',he(52,600,1,'#b3c5ff'),{deps:['r:project-art']});
-  text('project-art-copy',300,1044,'analyze → plan → save',lt(13,'#b3c5ff'),{deps:['r:project-art']});
+  rect('project-art',116,998,488,140,{r:10,fill:'#edf1ff',stroke:'#bec8ed'});
+  text('project-glyph',145,1036,'B ↗',he(52,600,1,'#4c5bd4'),{deps:['r:project-art']});
+  text('project-art-copy',300,1044,'analyze → plan → save',lt(13,'#4c5bd4'),{deps:['r:project-art']});
   text('project-title',116,1180,'BudgetWise',textStyles.h3,{snap:'project-guide'});
   text('project-desc',116,1225,'Agentic AI for financial savings. Intelligent agents connected to a full-stack web experience.',body,{w:455});
   text('project-tech',116,1310,'Next.js · OpenAI · FastAPI · Supabase',lt(11));
@@ -534,10 +534,10 @@ function createScene(e) {
   link('project-link~1','https://github.com/iddobarnoon/PersistentDocuStore');
   frame('football',1440,1800);
   vertical('football-divider',640,1440,1800);
-  rect('pitch',116,1490,488,250,{r:8,fill:'#1c2b23',stroke:'#4b6853'});
-  path('pitch-line',[{x:360,y:1490},{x:360,y:1740}],{stroke:'#6a9274',deps:['r:pitch']});
-  path('pitch-inner',[{x:140,y:1515},{x:580,y:1515},{x:580,y:1715},{x:140,y:1715}],{closed:true,stroke:'#6a9274',deps:['r:pitch']});
-  text('pitch-title',151,1580,'DATA → MODEL → PREDICTION',lt(18,'#bbd0b2'),{deps:['r:pitch']});
+  rect('pitch',116,1490,488,250,{r:8,fill:'#edf5ee',stroke:'#bfd1c3'});
+  path('pitch-line',[{x:360,y:1490},{x:360,y:1740}],{stroke:'#8aab91',deps:['r:pitch']});
+  path('pitch-inner',[{x:140,y:1515},{x:580,y:1515},{x:580,y:1715},{x:140,y:1715}],{closed:true,stroke:'#8aab91',deps:['r:pitch']});
+  text('pitch-title',151,1580,'DATA → MODEL → PREDICTION',lt(18,'#3c6031'),{deps:['r:pitch']});
   text('football-title',676,1500,'Premier League Win Predictor',textStyles.h3,{w:480});
   text('football-desc',676,1550,'Finding patterns in the beautiful game. A random forest model that predicts EPL winners from historical football data.',body,{w:455});
   text('football-tech',676,1665,'Scikit-learn · Pandas · NumPy · Jupyter',lt(11));
@@ -766,7 +766,8 @@ class SwarmEngine {
     };
   }
   setScroll(t) {
-    this.vp.scrollY = t, t > 4 && this.start();
+    this.vp.scrollY = t;
+    if (t > 0) this.start();
   }
   step(t) {
     t = Math.min(t, .05), this.time += t;
@@ -797,7 +798,7 @@ class SwarmEngine {
     }
     if (!this.started) {
       const a = this.fromViewport(this.vp.vw / 2, this.vp.vh / 2);
-      this.follow(t, this.cursors, a, .7) && this.start();
+      this.follow(t, this.cursors, a, .7);
       return;
     }
     this.cursors.some(a => a.follow) && this.follow(t, this.cursors.filter(a => a.follow)), this.spawnCooldown -= t;
@@ -1386,7 +1387,7 @@ const RectElement = React.memo(({
       top: e.y + e.dy,
       width: t,
       height: n,
-      background: e.styled ? e.fill : "#455064",
+      background: e.styled ? e.fill : "#d9d9d9",
       borderRadius: e.styled ? e.r : 0,
       boxShadow: e.styled && e.stroke ? `inset 0 0 0 1px ${e.stroke}` : "none"
     }
@@ -1839,15 +1840,11 @@ function SwarmPage() {
       e.vp.vw = m, e.vp.vh = window.innerHeight, e.vp.s = c, e.vp.left = (m - SCENE_WIDTH * c) / 2;
     };
     window.swarm = e;
-    const l = () => e.setScroll(window.scrollY),
-      i = () => {
-        window.scrollY > 0 && e.start();
-      };
-    r(), l(), window.addEventListener("resize", r), window.addEventListener("scroll", l, {
-      passive: !0
-    }), window.addEventListener("wheel", i, {
-      passive: !0
-    });
+    const l = () => e.setScroll(window.scrollY);
+    r();
+    e.vp.scrollY = window.scrollY;
+    window.addEventListener("resize", r);
+    window.addEventListener("scroll", l, { passive: true });
     const o = m => {
         e.mouse = {
           x: m.clientX,
@@ -1866,7 +1863,7 @@ function SwarmPage() {
       e.step((m - a) / 1e3), a = m, n(c => c + 1), u = requestAnimationFrame(p);
     };
     return u = requestAnimationFrame(p), () => {
-      cancelAnimationFrame(u), window.removeEventListener("resize", r), window.removeEventListener("scroll", l), window.removeEventListener("wheel", i), window.removeEventListener("pointermove", o), document.documentElement.removeEventListener("pointerleave", s);
+      cancelAnimationFrame(u), window.removeEventListener("resize", r), window.removeEventListener("scroll", l), window.removeEventListener("pointermove", o), document.documentElement.removeEventListener("pointerleave", s);
     };
   }, [e]), e ? jsxRuntime.jsxs(jsxRuntime.Fragment, {
     children: [jsxRuntime.jsxs("div", {
