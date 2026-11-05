@@ -1845,9 +1845,18 @@ function SwarmPage() {
     [, n] = React.useState(0);
   return React.useEffect(() => {
     "scrollRestoration" in history && (history.scrollRestoration = "manual"), window.scrollTo(0, 0);
+    const autoStartAt = performance.now() + 1500;
+    let cancelled = false;
+    let fontTimer;
     const r = ["400 16px Inter", "500 16px Inter", "600 16px Inter", '400 16px "JetBrains Mono"', '500 16px "JetBrains Mono"'],
-      l = new Promise(i => setTimeout(i, 2500));
-    Promise.race([Promise.all(r.map(i => document.fonts.load(i))), l]).then(() => t(new SwarmEngine()));
+      l = new Promise(resolve => { fontTimer = setTimeout(resolve, 1500); });
+    Promise.race([Promise.all(r.map(i => document.fonts.load(i))).catch(() => {}), l]).then(() => {
+      if (cancelled) return;
+      const engine = new SwarmEngine();
+      engine.autoStartAt = autoStartAt;
+      t(engine);
+    });
+    return () => { cancelled = true; clearTimeout(fontTimer); };
   }, []), React.useEffect(() => {
     if (!e) return;
     const r = () => {
@@ -1856,6 +1865,7 @@ function SwarmPage() {
       e.vp.vw = m, e.vp.vh = window.innerHeight, e.vp.s = c, e.vp.left = (m - SCENE_WIDTH * c) / 2;
     };
     window.swarm = e;
+    const autoStartTimer = setTimeout(() => e.start(), Math.max(0, e.autoStartAt - performance.now()));
     const l = () => e.setScroll(window.scrollY);
     r();
     e.vp.scrollY = window.scrollY;
@@ -1887,7 +1897,7 @@ function SwarmPage() {
       e.step((m - a) / 1e3), a = m, n(c => c + 1), u = requestAnimationFrame(p);
     };
     return u = requestAnimationFrame(p), () => {
-      cancelAnimationFrame(u), window.removeEventListener("resize", r), window.removeEventListener("scroll", l), window.removeEventListener("wheel", gentleScroll), window.removeEventListener("pointermove", o), document.documentElement.removeEventListener("pointerleave", s);
+      clearTimeout(autoStartTimer), cancelAnimationFrame(u), window.removeEventListener("resize", r), window.removeEventListener("scroll", l), window.removeEventListener("wheel", gentleScroll), window.removeEventListener("pointermove", o), document.documentElement.removeEventListener("pointerleave", s);
     };
   }, [e]), e ? jsxRuntime.jsxs(jsxRuntime.Fragment, {
     children: [jsxRuntime.jsxs("div", {

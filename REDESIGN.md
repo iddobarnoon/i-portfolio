@@ -14,7 +14,7 @@ Verified: production build, blank introduction with cursor swarm, drawing and ty
 
 This is recovered executable logic, not the author's original unminified source. See SWARM-NOTICE.md for provenance and reuse status.
 
-The light theme uses a paper background, dark text, and pale blue/green diagram panels. Construction starts only after a scroll changes the page position. Pointer movement, intro flock collisions, and elapsed time cannot start construction.
+The light theme uses a paper background, dark text, and pale blue/green diagram panels. Construction starts on the first scroll or about 1.5 seconds after opening the page, whichever comes first. Pointer movement and intro flock collisions do not start construction.
 
 Content was updated from the user's latest resume: NYU Courant education, Axonius and Lendbuzz internships, Trade the Knight first place, and the three resume projects. Repository links for BudgetWise and PersistentDocuStore were verified. The HFPredictionMarketBot URL was supplied by the user; the connected GitHub API returned 404, so its public availability is unverified. Employer and school names link to their official sites. The source resume was not copied into the public website.
 
